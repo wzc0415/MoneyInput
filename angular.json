@@ -120,6 +120,41 @@
           }
         }
       }
+    },
+    "money": {
+      "projectType": "library",
+      "root": "projects/money",
+      "sourceRoot": "projects/money/src",
+      "prefix": "zm",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/money/tsconfig.lib.json",
+            "project": "projects/money/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/money/src/test.ts",
+            "tsConfig": "projects/money/tsconfig.spec.json",
+            "karmaConfig": "projects/money/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/money/tsconfig.lib.json",
+              "projects/money/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "moneyInput"
 }
